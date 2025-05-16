@@ -1,3 +1,5 @@
+> ✨ This is a personal React 18+ template to be scalable, testable, and easily maintainable for both small and large side projects.
+
 # Templates
 
 React 기반의 웹 앱 템플릿입니다. \
