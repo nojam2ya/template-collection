@@ -5,28 +5,41 @@
 React 기반의 웹 앱 템플릿입니다. \
 React + (Vite or CRA) + TypeScript 
 
-## 📦 Stack (공통)
+## 📦 Stack
+### Common
 - React(18.x / 19.x)
-- TailwindCSS 4
 - Vite or CRA
+- Styled-components
+
+### Full-Featured
+- Heroicons, FontAwesome
+- TailwindCSS 4
 - React Router(v6 / v7)
-- Chart.js + React-ChartJS-2
 - Zustand, Jotai, Recoil
+- Chart.js + React-ChartJS-2
 - React Hook Form, React Query 5
 - Jest, Testing Library
-- Styled-components, Heroicons, FontAwesome
 - OpenLayers(OL)
 - Video.js
 - Lodash
 - React-datepicker
 - React-toastify
+- react-cookie
 - dotenv + env-cmd
 
 ---
 
 ## 🧱 Template Series
 
-### 1️⃣ template-react18
+### 🟢 1. Full-Featured Templates
+
+> 실무나 사이드 프로젝트에 바로 적용 가능한 구조화된 템플릿입니다.  
+> 경로 alias, 라우터, 상태관리, 테스트, axios 등 모든 기본 셋업이 포함되어 있습니다.
+
+- **react18-template-stable**: 실무에서 검증된 안정적인 React 18 템플릿
+- **react19-template-modern**: React 19 및 최신 라우팅 템플릿
+
+#### 🟢 react18-template-stable
 
 Vite + React 18 + Router v6
 
@@ -37,13 +50,14 @@ Vite + React 18 + Router v6
 pnpm install
 pnpm dev
 ```
-### 2️⃣ template-react19
+#### 🟢 react19-template-modern
 
 Vite + React 19 + Router v7
 
 > ⚠️ 아직 일부 패키지와 호환 이슈가 있을 수 있습니다.
 
 - React 19, Router v7 최신 버전 기반 (2025.05 기준)
+- `vite-tsconfig-paths` 포함 (path custom ✅)
 - 최신 스펙 실험 및 개발용으로 추천
 
 ```bash
@@ -51,11 +65,16 @@ pnpm install
 pnpm dev
 ```
 
-### 3️⃣ cra-ts-react18
+### 🟡 2. Legacy Template
+
+> CRA 기반의 구조를 따라야 하는 프로젝트에 사용 가능합니다.  
+> ⚠️ 현재는 Meta에서 CRA 지원을 중단한 상태입니다.
+
+- **react18-template-cra**: CRA + TypeScript + CRACO 기반의 레거시 대응 템플릿
+
+#### 🟡 react18-template-cra
 
 CRA + React 18 + Router v6 + CRACO
-
-> ⚠️ CRA는 deprecated되고 있습니다. (META 지원 중단)
 
 - CRA + TypeScript + CRACO 설정
 - 기존 CRA 생태계 기반의 프로젝트와 호환성 ✅
@@ -66,6 +85,25 @@ CRA + React 18 + Router v6 + CRACO
 pnpm install
 pnpm start
 ```
+
+### ⚪️ 3. Minimal Template
+
+> 코딩 테스트, 사전과제 제출용 등 최소한의 구성만 포함된 템플릿입니다.  
+> 라우터, 상태관리, axios 등이 포함되어 있지 않으며, <br/> 
+> path alias를 위한 세팅과 구조만 잡혀 있습니다.
+
+- **react18-template-bare**: 가장 단순한 React + Vite + TS 구조, 안정적인 React 18 템플릿
+- **react19-template-bare**: 가장 단순한 React + Vite + TS 구조, React 19 및 최신 라우팅 실험용 템플릿
+
+#### ⚪️ react18-template-bare
+
+- React 18, Router v6 안정 버전 기반 (2025.05 기준)
+- `vite-tsconfig-paths` 포함 (path custom ✅)
+
+#### ⚪️ react19-template-bare
+
+- React 19, Router v7 최신 버전 기반 (2025.05 기준)
+- `vite-tsconfig-paths` 포함 (path custom ✅)
 
 ---
 
