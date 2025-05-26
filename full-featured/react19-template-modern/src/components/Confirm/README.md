@@ -7,7 +7,7 @@
 ```text
 Confirm
 ├─ index.ts            # 모듈 진입점. export 정리
-├─ _Confirm.tsx        # Confirm 컴포넌트
+├─ _ConfirmRoot.tsx        # Confirm 컴포넌트
 ├─ _Confirm.types.ts   # 타입 정의
 ├─ _Confirm.styles.ts  # 스타일
 ├─ _useConfirm.ts      # hook
@@ -43,19 +43,19 @@ export default App;
 
 #### alert
 
-1. `useConfirm`을 `import` 하고
+1. `_useConfirm`을 `import` 하고
 
 ```tsx
-import {useConfirm} from 'Confirm디렉토리위치/Confirm';
+import {_useConfirm} from 'Confirm디렉토리위치/Confirm';
 ```
 
 2. `alert`과 `async`을 이용하여 handler 함수를 만든다.
 
 ```tsx
-import {useConfirm} from 'Confirm디렉토리위치/Confirm';
+import {_useConfirm} from 'Confirm디렉토리위치/Confirm';
 
 const Component = () => {
-    const {alert} = useConfirm();
+    const {alert} = _useConfirm();
 
     const openAlertHandler = async () => {
         const cancel = await alert({
@@ -79,19 +79,19 @@ export default Component;
 
 #### confirm
 
-1. `useConfirm`을 `import` 하고
+1. `_useConfirm`을 `import` 하고
 
 ```tsx
-import {useConfirm} from 'Confirm디렉토리위치/Confirm';
+import {_useConfirm} from 'Confirm디렉토리위치/Confirm';
 ``` 
 
 2. `confirm`과 `async`을 이용하여 handler 함수를 만든다.
 
 ```tsx
-import {useConfirm} from 'Confirm디렉토리위치/Confirm';
+import {_useConfirm} from 'Confirm디렉토리위치/Confirm';
 
 const Component = () => {
-    const {confirm} = useConfirm();
+    const {confirm} = _useConfirm();
 
     const openConfirmHandler = async () => {
         const ok = await confirm({
