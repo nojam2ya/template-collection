@@ -1,17 +1,21 @@
-> ✨ This is a personal React 18+ template to be scalable, testable, and easily maintainable for both small and large side projects.
+> ✨ This is a personal React 18+ template to be scalable, testable, and easily maintainable for both small and large
+> side projects.
 
 # Templates
 
 React 기반의 웹 앱 템플릿입니다. \
-React + (Vite or CRA) + TypeScript 
+React + (Vite or CRA) + TypeScript
 
 ## 📦 Stack
+
 ### Common
+
 - React(18.x / 19.x)
 - Vite or CRA
 - Styled-components
 
 ### Full-Featured
+
 - Heroicons, FontAwesome
 - TailwindCSS 4
 - React Router(v6 / v7)
@@ -50,6 +54,7 @@ Vite + React 18 + Router v6
 pnpm install
 pnpm dev
 ```
+
 #### 🟢 react19-template-modern
 
 Vite + React 19 + Router v7
@@ -89,7 +94,7 @@ pnpm start
 ### ⚪️ 3. Minimal Template
 
 > 코딩 테스트, 사전과제 제출용 등 최소한의 구성만 포함된 템플릿입니다.  
-> 라우터, 상태관리, axios 등이 포함되어 있지 않으며, <br/> 
+> 라우터, 상태관리, axios 등이 포함되어 있지 않으며, <br/>
 > path alias를 위한 세팅과 구조만 잡혀 있습니다.
 
 - **react18-template-bare**: 가장 단순한 React + Vite + TS 구조, 안정적인 React 18 템플릿
@@ -184,7 +189,7 @@ pnpm type-check   # 타입 검사
 
 ### Test Naming Convention
 
-모든 테스트 파일은 **대상 컴포넌트나 훅과 같은 디렉토리**에 `*.test.ts(x)` 형식으로 작성합니다. 
+모든 테스트 파일은 **대상 컴포넌트나 훅과 같은 디렉토리**에 `*.test.ts(x)` 형식으로 작성합니다.
 
 ```text
 src/
@@ -200,11 +205,105 @@ src/
     useCounter.ts
     useCounter.test.ts     ✅
 ```
+
 만약 테스트 파일 구조를 변경하려 한다면 `jest.config.ts`파일에서 수정할 수 있습니다.
 
 ```ts
 // jest.config.ts
 export default {
-  testMatch: ['**/?(*.)+(test).[jt]s?(x)'], // ✅ 테스트 파일 형식 수정
+    testMatch: ['**/?(*.)+(test).[jt]s?(x)'], // ✅ 테스트 파일 형식 수정
 }
+```
+
+...
+
+---
+
+## 🧩 Features
+
+> 프로젝트에서 바로 활용 가능한 기능 단위 모듈입니다.  
+> 컴포넌트, 상태 관리, 모달 팩토리 등 실무에서 반복 사용되는 기능을 독립적으로 구성했습니다.
+
+### ✅ Confirm 컴포넌트
+
+사용자 액션에 대한 Alert / Confirm UI를 제공하는 전역 모달 시스템입니다.  
+Jotai 상태 기반으로 작동하며, 비동기 호출로 사용자 응답을 Promise 형태로 처리할 수 있습니다.
+
+- 전역 Confirm 모달
+- Alert / Confirm 두 가지 형태 제공
+- 비동기 응답 처리 (resolve 방식)
+
+```bash
+npm i jotai
+```
+
+- 위치: `src/components/Confirm`
+
+```tsx
+import Confirm from '@components/Confirm';
+
+function App() {
+    return (
+        <>
+            <OtherComponent/>
+            <Confirm/>
+        </>
+    );
+}
+```
+
+```tsx
+const {alert, confirm} = _useConfirm();
+
+const handleClick = async () => {
+    const result = await confirm({
+        title: '삭제 확인',
+        children: '정말 삭제하시겠습니까?',
+    });
+
+    if (result) {
+        // OK
+    } else {
+        // Cancel
+    }
+};
+```
+
+### ✅ Modal System (Zustand × React 19)
+
+드래그 가능하고 겹쳐서 띄울 수 있는 모달 팩토리 시스템입니다.
+
+- 다중 모달 스택
+- 드래그 & 포커스 우선순위 관리
+- `@loadable/component` 기반 지연 로딩
+- 타입 기반 props 전달
+- Escape 키 닫기 등 UX 기능 내장
+
+```bash
+npm i zustand @loadable/component react-draggable
+```
+
+- 위치: `src/components/Modal`
+
+```tsx
+import ModalRoot from '@/components/Modal/_ModalRoot';
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+    <>
+        <App/>
+        <ModalRoot/>
+    </>
+);
+```
+
+```tsx
+const {openModal} = useModal();
+
+openModal({
+    id: 'user-profile-42',
+    type: 'USER_PROFILE',
+    props: {userId: 42},
+    $width: 480,
+    $height: 320,
+});
 ```
