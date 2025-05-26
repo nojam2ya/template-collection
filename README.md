@@ -13,6 +13,15 @@ React + (Vite or CRA) + TypeScript
 
 ## [🧱 Templates](/templates/README.md)
 
+>React + (Vite or CRA) + TypeScript <br/>
+>React 아래의 패키지들이 포함되어있는 기본 템플릿 모음입니다.
+
+| 템플릿 구조 | 설명 |
+| --- | --- |
+| Full-Featured Template | 실무나 사이드 프로젝트에 바로 적용 가능한 구조화된 템플릿 |
+| Legacy Template | CRA 기반의 구조, 레거시 대응 템플릿 | 
+| Minimal Template | 코딩 테스트, 사전과제 제출용 등 최소화된 템플릿 |
+
 - [🟢 _Full-Featured Template_ react18-template-stable](/templates/full-featured/react18-template-stable/README.md): 실무에서
   검증된 안정적인 React 18 템플릿
 - [🟢 _Full-Featured Template_ react19-template-modern](/templates/full-featured/react19-template-modern/README.md):
