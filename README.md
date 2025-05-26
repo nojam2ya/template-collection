@@ -24,8 +24,6 @@ React + (Vite or CRA) + TypeScript
 - [⚪️ _Minimal Template_ react19-template-bare](/templates/minimal/react19-template-bare/README.md): 가장 단순한 React +
   Vite + TS 구조, React 19 및 최신 라우팅 실험용 템플릿
 
-...
-
 ---
 
 ## 🧩 Features
