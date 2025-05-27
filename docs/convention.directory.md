@@ -106,6 +106,35 @@ src/
     - 해당 상태가 이 컴포넌트에서만 쓰인다면 컴포넌트 폴더 내에 위치시킵니다.
     - ⚠️ 주의: 전역 상태이거나 다수 컴포넌트에서 공유된다면 `infra/atoms` 또는 `infra/stores`에 위치시킵니다.
 
+#### ❓ **왜 엔트리 포인트 파일이 필요할까?(Public API Pattern + Private File Pattern)**
+
+1. 내부 코드를 숨기기 위한 목적 (Private File Pattern)
+
+    - `useSomethingInternal.ts`, `_constants.ts`처럼 내부 전용 파일이 외부에서 직접 `import`되는 걸 **방지**할 수 있습니다.
+    - 필요하다면 index.ts를 통해 **정제된 방식으로만 노출**할 수 있습니다.
+
+   ```tsx
+   // 내부 파일
+   export const INTERNAL_CONSTANT = 'foo';
+   export const EXTERNAL_CONSTANT = 'bar';
+
+   // index.ts
+   export { EXTERNAL_CONSTANT as CONSTANT } from './_constants';
+   ```
+
+2. 외부에 보여줄 구조를 통제 (Public API Pattern)
+
+    - 개발자가 의도한 방식대로 import하도록 유도할 수 있습니다.
+    - 특정 네이밍 충돌, 잘못된 사용 패턴을 방지할 수 있습니다.
+
+    ```tsx
+        // ❌ 잘못된 사용
+      import {useModal} from '../../features/someComponent/useModal.ts';
+      
+      // ✅ 올바른 사용
+      import {useModal} from '../../features/someComponent'; // index.ts 통해 노출됨
+    ```
+
 ---
 
 ## 🗂️ 디렉토리 항목별 역할
@@ -168,12 +197,12 @@ export const getUser = () => axios.get('/user');
 #### `quaries/`
 
 react-query 기반 query 커스텀 훅
-`use데이터Query.ts` 명으로 파일을 생성해주세요.
+`usee동작+데이터Query.ts` 명으로 파일을 생성해주세요. (ex. `useGetDataQuery.ts`)
 
 #### `mutations/`
 
 react-query 기반 mutation 커스텀 훅  
-`use데이터Mutation.ts` 명으로 파일을 생성해주세요.
+`use동작+데이터Mutation.ts` 명으로 파일을 생성해주세요. (ex. `useCreateDataMutation.ts`)
 
 ### 📂 `infra/`
 

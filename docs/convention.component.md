@@ -33,7 +33,7 @@ export default Component;
 컴포넌트는 기본적으로 `export default` 방식으로 외부에 노출합니다.  
 이외의 `export`는 같은 파일 내에서는 하지 않으며, 필요한 경우는 **파일을 분리하거나 네임스페이스 패턴을 사용**해 주세요.
 
-1. Name space 패턴 방식
+1. Name space 컴포넌트 패턴 방식
 2. 파일 분리(+ Private 파일 패턴)
 
 ### Name space
