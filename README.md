@@ -6,8 +6,13 @@
 React 기반의 웹 앱 템플릿 및 기능 모음입니다. \
 React + (Vite or CRA) + TypeScript
 
-- [🔖 Template convention](/docs/convention.md)
-- [🧪 Test & linting](/docs/testing.md)
+---
+
+## 📑 Convention & Onboarding
+
+- [🔖 Convention](/docs/convention.md)
+- [✈️ Onboarding](/docs/onboarding.md)
+- [🧪 Test & linting](/docs/testing.md) (미완)
 
 ---
 
