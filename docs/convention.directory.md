@@ -116,15 +116,15 @@ src/
 - 비도메인적 순수한 표현 요소 위주
 
 ```
-└── /SomeComp
-    ├── index.tsx
-    ├── SomeComp.meta.ts
-    ├── SomeComp.constants.ts
-    ├── SomeComp.styles.ts
-    ├── SomeComp.types.ts
-    ├── SomeComp.test.ts
-    ├── useSomeComp.ts
-    └── someCompStore.ts / someCompAtom.ts
+/SomeComp
+├── index.tsx
+├── SomeComp.meta.ts
+├── SomeComp.constants.ts
+├── SomeComp.styles.ts
+├── SomeComp.types.ts
+├── SomeComp.test.ts
+├── useSomeComp.ts
+└── someCompStore.ts / someCompAtom.ts
 ```
 
 ### 📂 `features/`
@@ -168,16 +168,16 @@ export const getUser = () => axios.get('/user');
 #### `quaries/`
 
 react-query 기반 query 커스텀 훅
+`use데이터Query.ts` 명으로 파일을 생성해주세요.
 
 #### `mutations/`
 
 react-query 기반 mutation 커스텀 훅  
-`use데이터Query.ts` 명으로 파일을 생성해주세요.
+`use데이터Mutation.ts` 명으로 파일을 생성해주세요.
 
 ### 📂 `infra/`
 
-외부 라이브러리 설정 및 래퍼  
-`use데이터Mutation.ts` 명으로 파일을 생성해주세요.
+외부 라이브러리 설정 및 래퍼
 
 - `api/` – axios 인스턴스, 인터셉터
 - `query/` – React Query 설정
